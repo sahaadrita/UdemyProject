@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Card from "../UI/Card";
 import classes from './AddUser.module.css'
 import Button from "../UI/Button";
+
 const AddUser=props=>{
     const [enteredUsername, setEnteredUsername]=useState('');
     const [enteredAge, setEnteredAge]=useState('');
@@ -13,7 +14,7 @@ const AddUser=props=>{
         if (+enteredAge<1){
             return;
         }
-        console.log(enteredUsername, enteredAge);
+        props.onAddUser(enteredUsername, enteredAge)
         setEnteredUsername('');
         setEnteredAge('')
     }
@@ -34,6 +35,7 @@ const AddUser=props=>{
 
     <Button type = "submit">Add User</Button>
 </form>
+
 </Card>
     )
 }
